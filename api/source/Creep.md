@@ -81,7 +81,7 @@ creep 是你的单位, creep 可以移动、采集能量、建造建筑、攻击
 
 {% api_method_params %}
 boost : string | undefined
-如果该身体部件被强化(boost)了，则该属性指定了强化所用的化合物类型。化合物为 <code>RESOURCE_*</code> 常量之一。 <a href="/minerals.html">了解更多</a>
+如果该身体部件被强化(boost)了，则该属性指定了强化所用的化合物类型。化合物为 <code>RESOURCE_*</code> 常量之一。 <a href="/resources.html">了解更多</a>
 ===
 type : string
 身体部件常量之一。
@@ -450,7 +450,7 @@ if(creep.generateSafeMode(creep.room.controller) == ERR_NOT_IN_RANGE) {
 
 ```
 
-向房间控制器添加一个新的安全模式激活次数。creep必须与房间控制器相邻并且带有 1000 ghodium 资源。
+向房间控制器添加一个新的安全模式激活次数。 creep 必须与房间控制器相邻并且带有 1000 ghodium 资源。
 
 {% api_method_params %}
 target : <a href="#StructureController">StructureController</a>
