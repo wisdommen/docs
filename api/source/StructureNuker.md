@@ -3,7 +3,7 @@
 <img src="img/nuke.png" alt="" align="right" />
 
 向其他房间发射一枚核弹，对着落区域造成大量伤害。
-每次发射都有冷却时间并且需要能量和 ghodium 资源。
+发射后需要时间冷却且需重新装填能量和 ghodium 资源。
 发射后将会在目标房间位置创建一个对任何玩家可见的 [Nuke](#Nuke) 对象，直至其着陆。
 已发射的核弹无法移动或者取消。核弹不能从新手房间发射或者发射向新手房间。放置到 StructureNuker 中的资源无法被取出 (withdraw)。
 
@@ -63,25 +63,25 @@
 
 
 {% api_property energy 'number' '{"deprecated": true}' %}
-                                                                
+
 [`.store[RESOURCE_ENERGY]`](#StructureExtension.store) 的别名。
 
 
 
 {% api_property energyCapacity 'number' '{"deprecated": true}' %}
-                                                                                                                
+
 [`.store.getCapacity(RESOURCE_ENERGY)`](#Store.getCapacity) 的别名。
 
 
 
 {% api_property ghodium 'number' '{"deprecated": true}' %}
-                                                                 
+
 [`.store[RESOURCE_GHODIUM]`](#StructureExtension.store) 的别名。
 
 
 
 {% api_property ghodiumCapacity 'number' '{"deprecated": true}' %}
-                                                                                                                 
+
 [`.store.getCapacity(RESOURCE_GHODIUM)`](#Store.getCapacity) 的别名。
 
 

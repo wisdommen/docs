@@ -14,19 +14,19 @@
         <td>50,000 ticks</td>
     </tr>
     <tr>
-        <td><strong>丰度(Density)变化几率</strong></td>
-        <td><code>DENSITY_LOW</code>: 100% 变化<br /> <code>DENSITY_MODERATE</code>: 5% 变化<br /> <code>DENSITY_HIGH</code>: 5% 变化<br /> <code>DENSITY_ULTRA</code>: 100% 变化</td>
+        <td><strong>丰度(Density)改变机率</strong></td>
+        <td><code>DENSITY_LOW</code>: 100% 机率改变<br /> <code>DENSITY_MODERATE</code>: 5% 机率改变<br /> <code>DENSITY_HIGH</code>: 5% 机率改变<br /> <code>DENSITY_ULTRA</code>: 100% 机率改变</td>
     </tr>
     </tbody>
 </table>
 
-{% page inherited/RoomObject.md %} 
+{% page inherited/RoomObject.md %}
 
 {% api_property density 'number' %}
 
 
 
-矿床密度。密度越高容量越大。一旦 <code>ticksToRegeneration</code> 降低至 0，该矿床的密度将被重新设置。其值为 <code>DENSITY_*</code> 常量之一。
+矿床丰度。丰度越高其容量越大。一旦再生时间 (<code>ticksToRegeneration</code>) 降为 0，该矿床的丰度将被重置为 <code>DENSITY_*</code> 常量之一。
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-资源类型，<code>RESOURCE_*</code>常量之一。
+资源类型， <code>RESOURCE_*</code> 常量之一。
 
 
 

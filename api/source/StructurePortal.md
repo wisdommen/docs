@@ -22,7 +22,7 @@
 
 {% api_property destination '<a href="#RoomPosition">RoomPosition</a> | object' %}
 
-如果这是个**通往其他房间**的传送门，则该属性为指向目的地房间出口位置的 `RoomPosition` 对象。
+如果这是个**通往其他房间** 的传送门，则该属性为指向目的地房间出口位置的 `RoomPosition` 对象。
 
 如果这是个**通往其他 shard** 的传送门，则该属性为一个包含了 `shard` 和 `room` 字符串属性的对象。无法确定其具体出口位置，creep 会被随机传送到目标房间的任意空闲位置。
 
