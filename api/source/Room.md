@@ -7,7 +7,7 @@
 
 
 
-该房间中的控制器（Controller）建筑，如果它存在的话，否则为 undefined。
+该房间中的控制器（Controller）建筑，如果其不存在则返回 undefined。
 
 
 
@@ -23,7 +23,7 @@
 
 
 
-本房间中所有 spawn 和 extension 的 <code>energyCapacity</code> 总额。
+本房间中所有 spawn 和 extension 的容量上限 <code>energyCapacity</code> 总额。
 
 
 {% api_property memory 'any' %}
@@ -48,7 +48,7 @@ room.memory.stage = 2;
 
 
 
-该房间中的 Storage 建筑，如果它存在的话，否则为 undefined。
+该房间中的 Storage 建筑，如果其不存在则返回 undefined。
 
 
 
@@ -56,7 +56,7 @@ room.memory.stage = 2;
 
 
 
-该房间中的 Terminal 建筑，如果它存在的话，否则为 undefined。
+该房间中的 Terminal 建筑，如果其不存在则返回 undefined。
 
 
 
@@ -113,7 +113,7 @@ Game.rooms.sim.createConstructionSite(10, 15, STRUCTURE_ROAD);
 ```
 
 ```javascript
-Game.rooms.sim.createConstructionSite(10, 15, STRUCTURE_SPAWN, 
+Game.rooms.sim.createConstructionSite(10, 15, STRUCTURE_SPAWN,
     'MySpawn2');
 ```
 
@@ -253,15 +253,15 @@ opts (可选) : object
 `FIND_DROPPED_RESOURCES` | Resource | 所有掉落的资源。
 `FIND_STRUCTURES` | Structure | 所有建筑。
 `FIND_MY_STRUCTURES` | Structure | 所有属于您的建筑，不包含中立建筑。
-`FIND_HOSTILE_STRUCTURES` | Structure | 所有不属于您的建筑，不包含中立建筑。
+`FIND_HOSTILE_STRUCTURES` | Structure | 所有其他玩家的建筑，不包含中立建筑。
 `FIND_FLAGS` | Flag | 所有旗帜。
-`FIND_MY_SPAWNS` | StructureSpawn | 属于您的 spawn。
-`FIND_HOSTILE_SPAWNS` | StructureSpawn | 不属于您的 spawn。
+`FIND_MY_SPAWNS` | StructureSpawn | 所有属于您的 spawn。
+`FIND_HOSTILE_SPAWNS` | StructureSpawn | 所有其他玩家的 spawn。
 `FIND_CONSTRUCTION_SITES` | ConstructionSite | 所有建筑工地。
 `FIND_MY_CONSTRUCTION_SITES` | ConstructionSite | 所有属于您的建筑工地。
-`FIND_HOSTILE_CONSTRUCTION_SITES` | ConstructionSite | 所有不属于您的建筑工地。
+`FIND_HOSTILE_CONSTRUCTION_SITES` | ConstructionSite | 所有其他玩家的建筑工地。
 `FIND_MINERALS` | Mineral | 所有矿床。
-`FIND_NUKES` | Nuke | 所有已发射的核弹。
+`FIND_NUKES` | Nuke | 所有将落地的核弹。
 `FIND_TOMBSTONES` | Tombstone | 所有墓碑。
 
 {% api_method findExitTo 'room' 3 %}
@@ -464,7 +464,7 @@ raw : boolean
 ### 返回值
 
 事件数组。每个事件都代表一个游戏动作，其格式如下：
- 
+
 ```javascript-content
 {
     event: EVENT_ATTACK,
@@ -488,7 +488,7 @@ raw : boolean
                 <li>`attackType` - 下列常量之一：
                     <ul>
                         <li>`EVENT_ATTACK_TYPE_MELEE` - creep 使用 [attack](#Creep.attack) 进行了攻击</li>
-                        <li>`EVENT_ATTACK_TYPE_RANGED` - creep 使用 [rangedAttack](#Creep.rangedAttack) 进行了攻击，或者 tower 使用 [attack](#StructureTower.attack) 进行了攻击</li> 
+                        <li>`EVENT_ATTACK_TYPE_RANGED` - creep 使用 [rangedAttack](#Creep.rangedAttack) 进行了攻击，或者 tower 使用 [attack](#StructureTower.attack) 进行了攻击</li>
                         <li>`EVENT_ATTACK_TYPE_RANGED_MASS` - creep 使用 [rangedMassAttack](#Creep.rangedMassAttack) 进行了攻击</li>
                         <li>`EVENT_ATTACK_TYPE_DISMANTLE` - creep 使用 [dismantle](#Creep.dismantle) 进行了攻击</li>
                         <li>`EVENT_ATTACK_TYPE_HIT_BACK` - creep 反击了其他 creep 的 [attack](#Creep.attack) 攻击</li>
@@ -548,11 +548,11 @@ raw : boolean
             一个 creep 或者 tower 修复了建筑。
             <ul>
                 <li>`targetId` - 目标对象 ID</li>
-                <li>`amount` - hit 修复量</li> 
+                <li>`amount` - hit 修复量</li>
                 <li>`energySpent` - 此次行动消耗的能量</li></ul>
             </ul>
         </td>
-    </tr>        
+    </tr>
     <tr>
         <td>`EVENT_RESERVE_CONTROLLER`</td>
         <td>
@@ -560,27 +560,27 @@ raw : boolean
             <ul>
                 <li>`amount` - 取得的预定时间</li></ul>
         </td>
-    </tr> 
+    </tr>
     <tr>
         <td>`EVENT_UPGRADE_CONTROLLER`</td>
         <td>
             一个 creep 在该房间执行了 [`upgradeController`](#Creep.upgradeController)。
             <ul>
-                <li>`amount` - 获得的控制点数（control points）</li> 
+                <li>`amount` - 获得的控制点数（control points）</li>
                 <li>`energySpent` - 此次行动消耗的能量</li></ul>
             </ul>
         </td>
-    </tr>    
+    </tr>
     <tr>
         <td>`EVENT_EXIT`</td>
         <td>
             一个 creep 移动到了其他房间。
             <ul>
-                <li>`room` - 目标房间的名称</li> 
+                <li>`room` - 目标房间的名称</li>
                 <li>`x`, `y` - creep 将要出现在其他房间的坐标位置</li></ul>
             </ul>
         </td>
-    </tr>           
+    </tr>
     <tr>
         <td>`EVENT_TRANSFER`</td>
         <td>
@@ -614,7 +614,7 @@ Y 坐标。
 
 ### 返回值
 
-一个 
+一个
 <a href="#RoomPosition">RoomPosition</a>
 对象，如果无法获取则返回 null。
 

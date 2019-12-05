@@ -2,14 +2,14 @@
 
 <img src="img/spawn.png" alt="" align="right" /> 
 
-母巢是你的殖民地中心。这种结构可以创建、更新和回收creeps。
-你的所有母巢都能通过 [`Game.spawns`](#Game.spawns) 这个hash list访问。
-母巢每 tick 会自动生产少量能量，所以即使你的所有 creeps 都死亡也能轻松的恢复。
+母巢 (spawn) 是你的殖民地中心。此建筑可以创建、更新和回收 creeps 。
+你能通过 [`Game.spawns`](#Game.spawns) 这个hash list 访问所有的母巢 (spawn) 。
+母巢 (spawn) 每 tick 会生产少许能量，以免玩家陷入无 creep 可用、无 creep 可造的困境。
 
 <table class="table gameplay-info">
     <tbody>
     <tr>
-        <td colspan="2"><strong>控制等级（Controller level）</strong></td>
+        <td colspan="2"><strong>控制等级 (Controller level) </strong></td>
     </tr>
     <tr>
         <td>1-6</td>
@@ -41,7 +41,7 @@
     </tr>
     <tr>
         <td><strong>Energy auto-regeneration</strong></td>
-        <td>当房间内的能量（所有的母巢和扩展中）低于300 时，每 tick 产生的能量单位为1。</td>
+        <td>当房间内的能量（所有的母巢和扩展中）低于300 时，母巢每 tick 会自动生存 1 单位的能量。</td>
     </tr>
     </tbody>
 </table>
@@ -50,13 +50,13 @@
 
 
 {% api_property energy 'number' '{"deprecated": true}' %}
-                                                                
+
 [`.store[RESOURCE_ENERGY]`](#StructureExtension.store) 的别名.
 
 
 
 {% api_property energyCapacity 'number' '{"deprecated": true}' %}
-                                                                                                                
+
 [`.store.getCapacity(RESOURCE_ENERGY)`](#Store.getCapacity) 的别名.
 
 
@@ -67,7 +67,7 @@
 spawn.memory.queue = [];
 ```
 
-<code>Memory.spawns[spawn.name]</code> 的一个简写。您可以使用它来快速访问母巢的特定内存数据对象。 <a href="/global-objects.html#Memory-object">了解更多关于 memory</a>
+<code>Memory.spawns[spawn.name]</code> 的一个简写。您可以使用它来快速访问母巢 (spawn) 的特定内存数据对象。 <a href="/global-objects.html#Memory-object">了解更多关于 memory</a>
 
 
 
@@ -75,7 +75,7 @@ spawn.memory.queue = [];
 
 
 
-Spawn 的名字。您在创建新母巢项时选择名称，以后无法更改。此名称是一个散列键，用于通过 <a href="#Game.spawns">Game.spawns</a> 对象访问。
+Spawn 的名字。在创建新母巢 (spawn) 时赋予，一但创建就无法更改，除非拆除重造。此名称是一个散列键，用于通过 <a href="#Game.spawns">Game.spawns</a> 对象访问。
 
 
 
@@ -83,7 +83,7 @@ Spawn 的名字。您在创建新母巢项时选择名称，以后无法更改�
 
 
 
-如果母巢正在孵化一个新的 creep, 这个对象将包含一个 [`StructureSpawn.Spawning`](#StructureSpawn-Spawning) 对象，否则为 null。
+如果母巢 (spawn) 正在孵化一个新的 creep ， 母巢 (spawn) 将包含一个 [`StructureSpawn.Spawning`](#StructureSpawn-Spawning) 对象，否则为 null。
 
 
 {% api_property store '<a href="#Store">Store</a>' %}
@@ -110,7 +110,7 @@ if(spawn.canCreateCreep(body, name) == OK) {
 {% api_method_params %}
 body : array&lt;string&gt;
 描述新 creep’s body 的数组。应该包含1至50个元素（以下常量之一）:
-					
+
 * `WORK`
 * `MOVE`
 * `CARRY`
@@ -119,7 +119,7 @@ body : array&lt;string&gt;
 * `HEAL`
 * `TOUGH`
 * `CLAIM`
-									
+
 ===
 name (可选) : string
 新 creep 的名字。它应该是唯一的 creep 名称, 所以 <code>Game.creeps</code> 对象不应该包含另一个同名的 creep (hash key)。如果没有定义，将生成一个随机名称。
@@ -133,8 +133,8 @@ name (可选) : string
 OK | 可以创建具有给定 body 和名称的 creep。
 ERR_NOT_OWNER | 你不是该 spawn 的所有者。
 ERR_NAME_EXISTS | 已经有一个叫这个名字的 creep 了。
-ERR_BUSY | 这个母巢已经在孵化另一个 creep 了。
-ERR_NOT_ENOUGH_ENERGY | 这个母巢和他的扩展包含的能量不足以孵化具有给定 body 的 creep。
+ERR_BUSY | 这个母巢 (spawn) 已经在孵化另一个 creep 了。
+ERR_NOT_ENOUGH_ENERGY | 这个母巢 (spawn) 和它的扩展 (extension) 包含的能量不足以孵化具有给定 body 的 creep。
 ERR_INVALID_ARGS | Body 没有被恰当地描述。
 ERR_RCL_NOT_ENOUGH | 您的房间控制器级别不足以使用此 spawn。
 {% endapi_return_codes %}
@@ -148,7 +148,7 @@ Game.spawns['Spawn1'].createCreep([WORK, CARRY, MOVE], 'Worker1');
 ```
 
 ```javascript
-Game.spawns['Spawn1'].createCreep([WORK, CARRY, MOVE], null, 
+Game.spawns['Spawn1'].createCreep([WORK, CARRY, MOVE], null,
     {role: 'harvester'});
 ```
 
@@ -176,7 +176,7 @@ body : array&lt;string&gt;
 * `HEAL`
 * `TOUGH`
 * `CLAIM`
-				
+
 ===
 name (可选) : string
 新 creep 的名字。它应该是唯一的 creep 名称, 所以 <code>Game.creeps</code> 对象不应该包含另一个同名的 creep (hash key)。如果没有定义，将生成一个随机名称。
@@ -214,16 +214,16 @@ Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Worker1', {
 ```
 
 ```javascript
-Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Worker1', { 
+Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Worker1', {
     energyStructures: [
-        Game.spawns['Spawn1'], 
+        Game.spawns['Spawn1'],
         Game.getObjectById('anExtensionId')
     ]
 });
 ```
 
 ```javascript
-var testIfCanSpawn = Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 
+var testIfCanSpawn = Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE],
     'Worker1', { dryRun: true });
 ```
 
@@ -241,10 +241,10 @@ body : array&lt;string&gt;
 * `HEAL`
 * `TOUGH`
 * `CLAIM`
-				
+
 ===
 name : string
-新 creep 的名字。它应该是唯一的 creep 名称, 所以 <code>Game.creeps</code> 对象不应该包含另一个同名的 creep (hash key)。如果没有定义，将生成一个随机名称。
+新 creep 的名字。它应是个独一无二的 creep 名以保证 <code>Game.creeps</code> 不含有重名的的 creep 。
 
 ===
 opts (可选) : object
@@ -268,7 +268,7 @@ opts (可选) : object
     <li>
             <div class="api-arg-title">directions</div>
             <div class="api-arg-type">array<number></div>
-            <div class="api-arg-desc">设置 creep 产生时移动的方向，是一个带有以下常量的数组:
+            <div class="api-arg-desc">设置 creep 出生时移动的方向，是一个带有以下常量的数组:
                                           <ul>
                                               <li><code>TOP</code></li>
                                               <li><code>TOP_RIGHT</code></li>
@@ -289,10 +289,10 @@ opts (可选) : object
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是该 spawn 的所有者。
+ERR_NOT_OWNER | 你不是该母巢 (spawn) 的所有者。
 ERR_NAME_EXISTS | 已经有一个叫这个名字的 creep 了。
-ERR_BUSY | 这个母巢已经在孵化另一个 creep 了。
-ERR_NOT_ENOUGH_ENERGY | 这个母巢和他的扩展包含的能量不足以孵化具有给定 body 的 creep。
+ERR_BUSY | 这个母巢 (spawn) 已经在孵化另一个 creep 了。
+ERR_NOT_ENOUGH_ENERGY | 这个母巢 (spawn) 和他的扩展包含的能量不足以孵化具有给定 body 的 creep。
 ERR_INVALID_ARGS | Body 没有被恰当地描述。
 ERR_RCL_NOT_ENOUGH | 您的房间控制器级别不足以使用此 spawn。
 {% endapi_return_codes %}
@@ -316,7 +316,7 @@ target : <a href="#Creep">Creep</a>
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 您不是此母巢或目标 creep 的所有者。
+ERR_NOT_OWNER | 您不是此母巢 (spawn) 或目标 creep 的所有者。
 ERR_INVALID_TARGET | 指定的目标不是一个 creep 对象。
 ERR_NOT_IN_RANGE | 目标 creep 太远了。
 ERR_RCL_NOT_ENOUGH | 您的房间控制器级别不足以使用此 spawn。
@@ -352,9 +352,9 @@ target : <a href="#Creep">Creep</a>
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是该 spawn 或者该 creep 的所有者。
-ERR_BUSY | 这个母巢已经在孵化另一个 creep 了。
-ERR_NOT_ENOUGH_ENERGY | 这个母巢和他的扩展包含的能量不足以孵化具有给定 body 的 creep。
+ERR_NOT_OWNER | 你不是该母巢 (spawn) 或者该 creep 的所有者。
+ERR_BUSY | 这个母巢 (spawn) 已经在孵化另一个 creep 了。
+ERR_NOT_ENOUGH_ENERGY | 这个母巢 (spawn) 和他的扩展 (extension) 包含的能量不足以孵化具有给定 body 的 creep。
 ERR_INVALID_TARGET | 指定的目标不是一个 creep 对象。
 ERR_FULL | 目标计时器的时间已经满了。
 ERR_NOT_IN_RANGE | 目标 creep 太远了。
@@ -371,7 +371,7 @@ ERR_RCL_NOT_ENOUGH | 您的房间控制器级别不足以使用此 spawn。
 
 {% api_property directions 'array<number>' %}
 
-一个指示了孵化方向的数组，参见 [`StructureSpawn.Spawning.setDirections`](#StructureSpawn.Spawning.setDirections).
+一个指示了出生方向的数组，参见 [`StructureSpawn.Spawning.setDirections`](#StructureSpawn.Spawning.setDirections).
 
 {% api_property name 'string' %}
 
@@ -403,7 +403,7 @@ Game.spawns['Spawn1'].spawning.cancel();
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是该 spawn 的所有者。
+ERR_NOT_OWNER | 你不是该母巢 (spawn) 的所有者。
 {% endapi_return_codes %}
 
 {% api_method setDirections 'directions' A %}
@@ -412,7 +412,7 @@ ERR_NOT_OWNER | 你不是该 spawn 的所有者。
 Game.spawns['Spawn1'].spawning.setDirections([RIGHT, TOP_RIGHT]);
 ```
 
-设置所需的方向，以使它们在生成时应移动到的位置。
+设置出生方向，以使它们在生成时应移动到的位置。
 
 {% api_method_params %}
 directions : array&lt;number>
@@ -434,6 +434,6 @@ directions : array&lt;number>
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是该 spawn 的所有者。
+ERR_NOT_OWNER | 你不是该母巢 (spawn) 的所有者。
 ERR_INVALID_ARGS | 无效的方向数组
 {% endapi_return_codes %}
