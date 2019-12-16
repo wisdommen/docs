@@ -585,7 +585,7 @@ else {
 message : string
 要显示的信息，最长 10 字符。
 ===
-public (optional) : boolean
+public (可选) : boolean
 设置为 true 来让其他玩家也能看到该信息。默认为 false。
 {% endapi_method_params %}
 
@@ -673,7 +673,7 @@ The target object.
 resourceType : string
 <code>RESOURCE_*</code>常量之一。
 ===
-amount (optional) : number
+amount (可选) : number
 要转移的资源数量。如果省略，将转移携带的全部指定资源。
 {% endapi_method_params %}
 
@@ -780,7 +780,7 @@ target : <a href="#Structure">Structure</a>, <a href="#Tombstone">Tombstone</a>
 resourceType : string
 <code>RESOURCE_*</code>常量之一。
 ===
-amount (optional) : number
+amount (可选) : number
 被传递资源的数量。如果没有这个参数，传递全部可用数量的资源。
 {% endapi_method_params %}
 

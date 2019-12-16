@@ -81,7 +81,7 @@ goal : object
 					</ul>
 				
 ===
-opts (optional) : object
+opts (可选) : object
 一个包含其他寻路选项的对象。
 <ul>
     <li>

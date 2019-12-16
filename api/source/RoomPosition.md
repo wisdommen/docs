@@ -269,7 +269,7 @@ objects : array
 range : number
 范围距离（半径）。
 ===
-opts (optional) : object
+opts (可选) : object
 详见 <a href="#Room.find">Room.find</a>。
 {% endapi_method_params %}
 

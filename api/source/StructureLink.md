@@ -103,7 +103,7 @@ linkFrom.transferEnergy(linkTo);
 target : <a href="#StructureLink">StructureLink</a>
 目标对象。
 ===
-amount (optional) : number
+amount (可选) : number
 将要传输的能量值。如果省略，所有能量都将被传输。
 {% endapi_method_params %}
 
