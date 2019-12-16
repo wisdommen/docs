@@ -57,7 +57,7 @@ fromRoom : string, <a href="#Room">Room</a>
 toRoom : string, <a href="#Room">Room</a>
 终点房间名或房间对象。
 ===
-opts (optional) : object
+opts (可选) : object
 包含寻路选项的对象。参见<code><a href="#findRoute">findRoute</a></code>。
 {% endapi_method_params %}
 
@@ -145,7 +145,7 @@ fromRoom : string, <a href="#Room">Room</a>
 toRoom : string, <a href="#Room">Room</a>
 终点房间名或房间对象。
 ===
-opts (optional) : object
+opts (可选) : object
 包含下列选项的对象：
 					<ul>
 						<li>
@@ -194,7 +194,7 @@ roomName1 : string
 roomName2 : string
 第二个房间名。
 ===
-continuous (optional) : boolean
+continuous (可选) : boolean
 是否视世界地图为在边界连续。 如果要计算交易或终端发送开销，请设置为true。 默认值为false。
 {% endapi_method_params %}
 

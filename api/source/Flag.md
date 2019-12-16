@@ -60,7 +60,7 @@ Game.flags.Flag1.setColor(COLOR_GREEN, COLOR_WHITE);
 color : string
 旗帜的主要颜色。<code>COLOR_*</code> 常量之一。
 ===
-secondaryColor (optional) : string
+secondaryColor (可选) : string
 旗帜的次要颜色。<code>COLOR_*</code> 常量之一。
 {% endapi_method_params %}
 

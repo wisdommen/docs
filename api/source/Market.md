@@ -385,7 +385,7 @@ Game.market.getAllOrders(order => order.resourceType == RESOURCE_GHODIUM &&
 获取当前市场上其他玩家活跃的订单。
 
 {% api_method_params %}
-filter (optional) : object, function
+filter (可选) : object, function
 一个对象或者函数，将使用 <a href="https://lodash.com/docs#filter"><code>lodash.filter</code></a> 方法对结果列表进行筛选。
 {% endapi_method_params %}
 
@@ -412,7 +412,7 @@ filter (optional) : object, function
 获取最近 14 天以来市场中指定资源的每日价格记录。
 
 {% api_method_params %}
-resourceType (optional) : string
+resourceType (可选) : string
 `RESOURCE_*` 常量之一。如果为 undefined，则返回所有资源的历史数据。
 {% endapi_method_params %}
 

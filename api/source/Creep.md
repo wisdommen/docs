@@ -380,7 +380,7 @@ if(target) {
 
 ```
 
-拆解任意可以建造的建筑(即时是敌人的)并且返回 50% 其修理所花的能量。需要 <code>WORK</code> 身体部件。如果 creep 有空余的 <code>CARRY</code> 身体部件，则会直接将能量转移进去；否则能量将掉落在地上。目标必须与 creep 相邻。
+拆解任意可以建造的建筑（即使是敌人的）并且返回 50% 其修理所花的能量。需要 <code>WORK</code> 身体部件。如果 creep 有空余的 <code>CARRY</code> 身体部件，则会直接将能量转移进去；否则能量将掉落在地上。目标必须与 creep 相邻。
 
 **译者注**：拆解效率和 `WORK` 部件的数量正相关。
 
@@ -423,7 +423,7 @@ for(const resourceType in creep.carry) {
 resourceType : string
 <code>RESOURCE_*</code> 常量之一。
 ===
-amount (optional) : number
+amount (可选) : number
 丢弃资源的数量。如果没有这个参数，丢弃全部资源。
 {% endapi_method_params %}
 
@@ -450,7 +450,7 @@ if(creep.generateSafeMode(creep.room.controller) == ERR_NOT_IN_RANGE) {
 
 ```
 
-向房间控制器添加一个新的安全模式激活次数。 creep 必须与房间控制器相邻并且带有 1000 ghodium 资源。
+向房间控制器添加一个新的安全模式激活次数。creep 必须与房间控制器相邻并且带有 1000 ghodium 资源。
 
 {% api_method_params %}
 target : <a href="#StructureController">StructureController</a>
@@ -1074,7 +1074,7 @@ else {
 message : string
 要显示的信息，最长 10 字符。
 ===
-public (optional) : boolean
+public (可选) : boolean
 设置为 true 来让其他玩家也能看到该信息。默认为 false。
 {% endapi_method_params %}
 
@@ -1167,7 +1167,7 @@ target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>, <a hr
 resourceType : string
 <code>RESOURCE_*</code> 常量之一。
 ===
-amount (optional) : number
+amount (可选) : number
 要转移的资源数量。如果省略，将转移携带的全部指定资源。
 {% endapi_method_params %}
 
@@ -1245,7 +1245,7 @@ target : <a href="#Structure">Structure</a>, <a href="#Tombstone">Tombstone</a>,
 resourceType : string
 <code>RESOURCE_*</code> 常量之一。
 ===
-amount (optional) : number
+amount (可选) : number
 被传递资源的数量。如果没有这个参数，传递全部可用数量的资源。
 {% endapi_method_params %}
 
