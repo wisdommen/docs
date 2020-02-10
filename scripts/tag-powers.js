@@ -93,7 +93,7 @@ function powerDescription(powerName) {
         return `使矿藏每 ${powerInfo.period} tick 增加 ${effectMetric()} 点矿物。`;
 
       case "DISRUPT_TERMINAL":
-        return `阻止从 terminal 中取出资源。`;
+        return `阻止从 terminal 中取出（withdraw）或使用资源。`;
 
       case "FORTIFY":
         return `使得一个 wall 或者 rampart 免疫所以来自 creep 的伤害和 power 的效果。`;

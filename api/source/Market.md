@@ -335,18 +335,18 @@ ERR_INVALID_ARGS | 提供了无效的参数。
 
 
 ```javascript
-Game.market.getAllOrders();
+Game.market.getAllOrders(); // 更慢
 ```
 
 ```javascript
-Game.market.getAllOrders({type: ORDER_SELL, resourceType: RESOURCE_GHODIUM});
+Game.market.getAllOrders({type: ORDER_SELL, resourceType: RESOURCE_GHODIUM}); // 更快
 ```
 
 ```javascript
 const targetRoom = "W1N1";
 Game.market.getAllOrders(order => order.resourceType == RESOURCE_GHODIUM &&
 	order.type == ORDER_SELL &&
-    Game.market.calcTransactionCost(1000, targetRoom, order.roomName) < 500);
+    Game.market.calcTransactionCost(1000, targetRoom, order.roomName) < 500); // 更慢
 ```
 
 ```javascript
@@ -382,7 +382,7 @@ Game.market.getAllOrders(order => order.resourceType == RESOURCE_GHODIUM &&
 }]
 ```
 
-获取当前市场上其他玩家活跃的订单。
+获取当前市场上其他玩家活跃的订单。该方法支持 `resourceType` 内置索引。
 
 {% api_method_params %}
 filter (可选) : object, function

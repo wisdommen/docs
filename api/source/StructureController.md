@@ -62,7 +62,7 @@
     <tbody>
     <tr>
         <td style="width:60px;"><strong>效果</strong></td>
-        <td>阻止本房间中的所有敌对 creep 的 <code>attack</code>, <code>rangedAttack</code>, <code>rangedMassAttack</code>, <code>dismantle</code>, <code>heal</code>, <code>rangedHeal</code>, <code>attackController</code> and <code>withdraw</code> 方法。同一时间内只能有一个房间激活安全模式。<br/>
+        <td>阻止本房间中的所有敌对 creep 的 <code>attack</code>, <code>rangedAttack</code>, <code>rangedMassAttack</code>, <code>dismantle</code>, <code>heal</code>, <code>rangedHeal</code>, <code>attackController</code> and <code>withdraw</code> 方法。以及敌对 Power Creep 的 <code>enableRoom</code> 和 <code>usePower</code> 方法。同一时间内只能有一个房间激活安全模式。<br/>
     当安全模式被激活时，所有的敌对 creep 都将变透明并且可通过, 您的 creep 可以自由的穿过他们 (反之亦然)。</td>
     </tr>
     <tr>

@@ -479,7 +479,7 @@ ERR_INVALID_ARGS | <code>enable</code> 参数不是 boolean 值。
 {% api_method pickup 'target' A %}
 
 ```javascript
-const target = creep.pos.findClosestByRange(FIND_DROPPED_ENERGY);
+const target = creep.pos.findClosestByRange(FIND_DROPPED_RESOURCES);
 if(target) {
     if(creep.pickup(target) == ERR_NOT_IN_RANGE) {
         creep.moveTo(target);

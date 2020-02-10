@@ -76,7 +76,7 @@ title: NPC 入侵者
 
 ![](img/stronghold_loot5.png) ![](img/stronghold_loot1.png) ![](img/stronghold_loot2.png) ![](img/stronghold_loot3.png) ![](img/stronghold_loot4.png)
 
-一个正常的 NPC 要塞不仅会在区块中生成入侵者，并且每隔几千 ticks 还会在临近的房间内生成较小的要塞核心。
+一个正常的 NPC 要塞不仅会在区块中生成入侵者，并且每隔几千 ticks 还会在临近的中立（甚至是预定）房间内生成较小的要塞核心。
 这种核心不会包含任何建筑或者 creep。但是他会预定 (reserve) 房间的控制器，在摧毁它之前，您将无法从该房间采集能量。
 
 ![](img/invader-core-expand.gif)
