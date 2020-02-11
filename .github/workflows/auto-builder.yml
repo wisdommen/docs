@@ -1,0 +1,68 @@
+name: Github Action Auto Builder
+
+on:
+  push:
+    branches:    
+      - master 
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+    
+    - name: Cache node modules
+      uses: actions/cache@v1
+      id: cache
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+        
+    - name: Cache API modules
+      uses: actions/cache@v1
+      id: cache-api
+      with:
+        path: api/node_modules
+        key: ${{ runner.os }}-node-api-${{ hashFiles('api/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-api-        
+
+    - name: Install Dependencies
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: npm install 
+
+    - name: Install API Dependencies
+      if: steps.cache-api.outputs.cache-hit != 'true'
+      run: |
+         cd api
+         npm install
+         cd ..
+ 
+    - name: Generate Docs
+      run: |
+          npm run generate
+          cd api
+          npm run generate
+          cd .. 
+    
+    - name: Update Artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: docs
+        path: public
+    
+    - name: Push Docs
+      run: |
+        cd ./public
+        git config --global user.email "nobody@github.com"
+        git config --global user.name "Github Action Auto Builder"
+        git init
+        git add --all .
+        git commit -m "Github Action Auto Builder"
+        git push --quiet --force https://${{ secrets.GH_TOKEN }}@github.com/screeps-cn/screeps-cn.github.io.git master
+
