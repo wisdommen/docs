@@ -732,7 +732,7 @@ opts (可选) : object
 						<li>
 							<div class="api-arg-title">noPathFinding</div>
 							<div class="api-arg-type">boolean</div>
-							<div class="api-arg-desc">如果该选择设为 true 并且内存中没有重用路径时，<code>moveTo</code> 将会返回 <code>ERR_NOT_FOUND</code>。在某些情况下，这回节省大量的 CPU 时间。默认值为 false。</div>
+							<div class="api-arg-desc">如果该选择设为 true 并且内存中没有重用路径时，<code>moveTo</code> 将会返回 <code>ERR_NOT_FOUND</code>。在某些情况下，这会节省大量的 CPU 时间。默认值为 false。</div>
 						</li>
 						<li>
 							<div class="api-arg-title">visualizePathStyle</div>
@@ -803,7 +803,7 @@ ERR_INVALID_ARGS | <code>enable</code> 参数不是 boolean 值。
 {% api_method pickup 'target' A %}
 
 ```javascript
-const target = creep.pos.findClosestByRange(FIND_DROPPED_ENERGY);
+const target = creep.pos.findClosestByRange(FIND_DROPPED_RESOURCES);
 if(target) {
     if(creep.pickup(target) == ERR_NOT_IN_RANGE) {
         creep.moveTo(target);
@@ -1013,11 +1013,11 @@ target : <a href="#Structure">Structure</a>
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | 你不是这个 creep 的拥有者。
-ERR_BUSY | 这个 creep 依然在孵化中。
-ERR_NOT_ENOUGH_RESOURCES | 这个creep没有携带任何能量。
+ERR_BUSY | 该 creep 依然在孵化中。
+ERR_NOT_ENOUGH_RESOURCES | 该 creep 没有携带任何能量。
 ERR_INVALID_TARGET | 目标不是一个有效的 structure 对象。
 ERR_NOT_IN_RANGE | 目标太远了。
-ERR_NO_BODYPART | 这个 creep 身上没有 <code>WORK</code> 部件。
+ERR_NO_BODYPART | 该 creep 身上没有 <code>WORK</code> 部件。
 {% endapi_return_codes %}
 
 

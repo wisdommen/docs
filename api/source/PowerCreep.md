@@ -415,7 +415,7 @@ opts (可选) : object
 						<li>
 							<div class="api-arg-title">noPathFinding</div>
 							<div class="api-arg-type">boolean</div>
-							<div class="api-arg-desc">如果该选择设为 true 并且内存中没有重用路径时，<code>moveTo</code> 将会返回 <code>ERR_NOT_FOUND</code>。在某些情况下，这回节省大量的 CPU 时间。默认值为 false。</div>
+							<div class="api-arg-desc">如果该选择设为 true 并且内存中没有重用路径时，<code>moveTo</code> 将会返回 <code>ERR_NOT_FOUND</code>。在某些情况下，这会节省大量的 CPU 时间。默认值为 false。</div>
 						</li>
 						<li>
 							<div class="api-arg-title">visualizePathStyle</div>
@@ -479,7 +479,7 @@ ERR_INVALID_ARGS | <code>enable</code> 参数不是 boolean 值。
 {% api_method pickup 'target' A %}
 
 ```javascript
-const target = creep.pos.findClosestByRange(FIND_DROPPED_ENERGY);
+const target = creep.pos.findClosestByRange(FIND_DROPPED_RESOURCES);
 if(target) {
     if(creep.pickup(target) == ERR_NOT_IN_RANGE) {
         creep.moveTo(target);

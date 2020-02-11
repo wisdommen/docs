@@ -11,13 +11,9 @@ title: 交易系统
 
 ## 交易系统及市场订单
 
-Screeps 的交易系统本质是由终端收发的市场中间人交易：玩家首先需将订单发送至[市场](https://screeps.com/a/#!/market)，
-订单须包含以下信息：订单类型（买入或卖出）、资源单价、资源种类、交易总量、发单房间。挂新订单或修改现有订单均含有手续费，
-**手续费**由挂单方出，为订单总价的 5% ，以积分计算。
+Screeps 的交易系统本质是由终端（Terminal）收发的市场中间人交易。通过创建订单，您可以指定交易的目标终端，、源类型、要出售/购买的资源数量以及资源的单价。每个发布的订单对游戏世界中的所有玩家均可见，你可以通过 [Market](https://screeps.com/a/#!/market) 页面或者 API 方法 [`Game.market.getAllOrders`](/api/#Game.market.getAllOrders) 来访问这些订单。创建任何类型的订单都需要缴纳订单总价的 5% credit 的手续费。
 
-然后其他玩家可通过[`Game.market.getAllOrders`](/api/#Market.getAllOrders)查看所有订单。
-且可通过 [`Game.market.deal`](/api/#Market.deal) 接收中意的订单。**运输费**由接单方出，
-可通过 [`Game.market.calcTransactionCost`](/api/#Game.market.calcTransactionCost) 计算，以能量 （energy）计算。
+为了执行交易，另一方同样需要有一个终端来接受资源（拍下一个卖出订单）或发送资源（拍下一个购买订单）。想要完成交易，你可以使用市场页面或者 [`Game.market.deal`](/api/#Game.market.deal) 方法并指定想要交易的来自其他玩家的订单、你的终端以及想要交易的资源数量。然后，双方的终端自动进行交易，从买方的帐户中取出相应的 credit，然后将这笔款项转移给卖方。
 
 {% note info %}
 由于能量开支为终端传送消耗，因此无论订单为买入类或卖出类，能量开支均从接单方终端扣除。
