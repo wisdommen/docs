@@ -46,7 +46,7 @@ Spawn扩展的放置位置不重要，只需要和 Spawn 在一个房间里就�
 
 *   Creep `[CARRY, WORK, MOVE]` 在没有搬运能量的时候一个 tick 可以跑 1 格，搬了能量以后 2 个 tick 才能跑 1 格。
 *   Creep `[TOUGH, ATTACK, ATTACK, MOVE, MOVE, MOVE]` 将以满速（1 个 tick 一格）行动。
-*   Creep `[TOUGH, ATTACK, ATTACK, MOVE, MOVE]` 根据四舍五入原则 2 个 tick 移动 1 格。
+*   Creep `[TOUGH, ATTACK, ATTACK, MOVE, MOVE]` 根据向上取整原则 2 个 tick 移动 1 格。
 
 ## 伤害
 
