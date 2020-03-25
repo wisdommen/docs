@@ -102,7 +102,7 @@ progressTotal : number
 Game.powerCreeps['PC1'].moveTo(flag);
 ```
 
-包含你所有能量 creep 的 hash，以 creep 名作为关键字。升值可以在这里访问没有生产的能量 creep。 
+包含你所有超能 creep 的 hash，以 creep 名称为键。从这里也可以访问到未孵化的超能 creep。 
 
 
 {% api_property Game.resources 'object' %}
