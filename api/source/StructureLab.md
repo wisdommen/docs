@@ -135,7 +135,37 @@ ERR_NOT_FOUND | lab 中存放的矿物类型无法强化该 creep 的任何身�
 ERR_NOT_ENOUGH_RESOURCES | lab 中没有足够的能量或者矿物。
 ERR_INVALID_TARGET | 目标不是有效的 creep 对象。
 ERR_NOT_IN_RANGE | 目标距离过远。
-ERR_RCL_NOT_ENOUGH | 房间控制中心等级不足。
+ERR_RCL_NOT_ENOUGH | 房间控制器等级不足。
+{% endapi_return_codes %}
+
+
+{% api_method reverseReaction 'lab1, lab2' A %}
+
+
+将化合物还原为其反应底物。同一个输出 lab 可以和多个输入 lab 进行反应。
+
+{% api_method_params %}
+lab1 : <a href="#StructureLab">StructureLab</a>
+第一个输出 lab。
+===
+lab2 : <a href="#StructureLab">StructureLab</a>
+第二个输出 lab。
+{% endapi_method_params %}
+
+
+### 返回值
+
+下列返回值之一：
+{% api_return_codes %}
+OK | 这个操作已经成功纳入计划。
+ERR_NOT_OWNER | 您不是该 lab 的所有者。
+ERR_NOT_ENOUGH_RESOURCES | 源 lab 中没有足够的资源。
+ERR_INVALID_TARGET | 目标不是有效的 lab 对象。
+ERR_FULL | 有输出 lab 无法存放更多资源。
+ERR_NOT_IN_RANGE | 目标距离过远。
+ERR_INVALID_ARGS | 该资源无法进行还原。
+ERR_TIRED | 该 lab 尚在冷却。
+ERR_RCL_NOT_ENOUGH | 房间控制器等级不足。
 {% endapi_return_codes %}
 
 
@@ -161,13 +191,13 @@ lab2 : <a href="#StructureLab">StructureLab</a> (lab)
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | 您不是该 lab 的所有者。
-ERR_NOT_ENOUGH_RESOURCES | 输入 lab 没有足够的能量或者矿物。
+ERR_NOT_ENOUGH_RESOURCES | 输入 lab 没有足够的资源。
 ERR_INVALID_TARGET | 目标不是有效的 lab 对象。
 ERR_FULL | 目标无法接受更多能量。
 ERR_NOT_IN_RANGE | 目标距离过远。
 ERR_INVALID_ARGS | 无法使用输入 lab 中的资源进行反应。
 ERR_TIRED | 该 lab 仍在冷却中。
-ERR_RCL_NOT_ENOUGH | 房间控制中心等级不足。
+ERR_RCL_NOT_ENOUGH | 房间控制器等级不足。
 {% endapi_return_codes %}
 
 
@@ -192,5 +222,5 @@ ERR_INVALID_TARGET | 目标不是有效的 creep 对象。
 ERR_TIRED | 该 lab 仍在冷却当中。
 ERR_NOT_IN_RANGE | 目标太远了。
 ERR_NOT_FOUND | 目标没有强化过的身体部件。
-ERR_RCL_NOT_ENOUGH | 房间控制中心等级不足。
+ERR_RCL_NOT_ENOUGH | 房间控制器等级不足。
 {% endapi_return_codes %}

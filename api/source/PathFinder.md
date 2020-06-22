@@ -122,7 +122,7 @@ opts (可选) : object
     <li>
         <div class="api-arg-title">heuristicWeight</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">应用于 A\* 算法 <code>F = G + weight \* H</code> 中的启发式权重(weight)。在使用该选项之前您最好已经了解了 A\* 算法的底层实现！默认值为 1。</div>
+        <div class="api-arg-desc">应用于 A\* 算法 <code>F = G + weight \* H</code> 中的启发式权重(weight)。在使用该选项之前您最好已经了解了 A\* 算法的底层实现！默认值为 1.2。</div>
     </li>
 </ul>
 				

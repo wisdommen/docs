@@ -15,7 +15,7 @@ title: 公共测试领域 (PTR)
 
 <p>[更新日志](https://screeps.com/forum/category/8/)</p>
 
-<p>[API 参考](http://ptr-docs.screeps.com/api/)</p> 
+<p>[API 参考](http://docs-ptr.screeps.com/api/)</p> 
 </div>
 
 ---

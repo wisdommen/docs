@@ -653,7 +653,7 @@ creep.moveByPath(creep.memory.path);
 
 {% api_method_params %}
 path : array|string
-<a href="#Room.findPath"><code>Room.findPath</code></a>、<a href="#RoomPosition.findPathTo"><code>RoomPosition.findPathTo</code></a> 或 <a href="#PathFinder.PathFinder-search"><code>PathFinder.search</code></a> 的返回值。数组和序列化的字符串都可以接受。
+从 <a href="#Room.findPath"><code>Room.findPath</code></a>, <a href="#RoomPosition.findPathTo"><code>RoomPosition.findPathTo</code></a> 或 <a href="#PathFinder.search"><code>PathFinder.search</code></a> 方法返回的路径值，数组或序列字符串形式都可接受。
 {% endapi_method_params %}
 
 
