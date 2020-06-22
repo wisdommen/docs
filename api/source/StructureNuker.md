@@ -128,7 +128,8 @@ pos : <a href="#RoomPosition">RoomPosition</a>
 OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | 你不是这个建筑的拥有者。
 ERR_NOT_ENOUGH_RESOURCES | 该建筑没有足够的能量和/或 ghodium。
-ERR_INVALID_TARGET | 目标不是有效的 RoomPosition。
+ERR_INVALID_ARGS | 目标不是有效的 RoomPosition。
+ERR_INVALID_TARGET | nuke 无法发射至指定的 RoomPosition（见 [起始区域](/start-areas.html)）
 ERR_NOT_IN_RANGE | 目标房间超出打击范围。
 ERR_TIRED | 该建筑仍在冷却。
 ERR_RCL_NOT_ENOUGH | 房间控制中心等级不足。

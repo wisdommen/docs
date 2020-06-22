@@ -142,9 +142,10 @@ name (可选) : string
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_INVALID_TARGET | 该建筑无法被放置在指定位置。
+ERR_INVALID_TARGET | T该建筑无法被放置在指定位置。
 ERR_FULL | 你已经放置了太多建筑工地。其上限为 100。
 ERR_INVALID_ARGS | 不正确的位置。
+ERR_NOT_OWNER | 该房间被敌对玩家占领（claim）或预定（reserve）。
 ERR_RCL_NOT_ENOUGH | 房间控制器级别不足。<a href="/control.html">了解更多</a>
 {% endapi_return_codes %}
 
@@ -387,7 +388,7 @@ opts (可选) : object
     <li>
         <div class="api-arg-title">heuristicWeight</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">应用于 A\* 算法 <code>F = G + weight \* H</code> 中的启发式权重(weight)。在使用该选项之前您最好已经了解了 A\* 算法的底层实现！默认值为 1。</div>
+        <div class="api-arg-desc">应用于 A\* 算法 <code>F = G + weight \* H</code> 中的启发式权重(weight)。在使用该选项之前您最好已经了解了 A\* 算法的底层实现！默认值为 1.2。</div>
     </li>
     <li>
         <div class="api-arg-title">serialize</div>

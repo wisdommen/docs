@@ -272,7 +272,7 @@ pos : <a href="#RoomPosition">RoomPosition</a>
 
 返回世界尺寸，即世界对角之间的房间数。例如对于一个从 W50N50 至 E50S50 的世界这个方法返回102。
 
-{% api_method Game.map.isRoomAvailable 'roomName' 2 %}
+{% api_method Game.map.isRoomAvailable 'roomName' 2 '{"deprecated": "Please use [`Game.map.getRoomStatus`](#Game.map.getRoomStatus) instead."}'%}
 
 ```javascript
 if(Game.map.isRoomAvailable(room.name)) {
@@ -291,3 +291,29 @@ The room name.
 ### 返回值
 
 布尔值
+
+{% api_method Game.map.getRoomStatus 'roomName' 2 %}
+
+```javascript
+if(Game.map.getRoomStatus(room.name).status == 'normal') {
+    nuker.launchNuke(room.getPositionAt(25,25));
+}
+```
+
+获取指定房间的开放状态。点击 [本文](/start-areas.html) 了解更多起始区域的相关信息。
+
+{% api_method_params %}
+roomName : string
+房间名
+{% endapi_method_params %}
+
+
+### 返回值
+
+包含如下属性的对象：
+
+属性 | 类型 | 介绍
+---|---
+`status` | string | 下列字符串之一：<ul><li><code>normal</code> &ndash; 该房间没有限制 </li><li><code>closed</code> &ndash; 该房间未启用（not available）</li><li><code>novice</code> &ndash; 该房间是新手区的一部分 </li><li><code>respawn</code> &ndash; 该房间是重生区的一部分</li></ul>
+`timestamp` | number | 状态终止时间 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime#Syntax">UNIX 毫秒时间戳</a>。如果房间状态没有终止时间，则该属性为 null。
+

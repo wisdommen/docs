@@ -27,8 +27,15 @@ bucket : number
 在你的 <a href="/cpu-limit.html#Bucket">bucket</a> 中累积的未使用的 CPU 数量。
 ===
 shardLimits : object<br>&lt;string,number&gt;
-每个 shard 限制的对象，以 shard 名称为关键字。你可以使用 [`setShardLimits`](#Game.setShardLimits)
+包含了每个 shard cpu 上限的对象，以 shard 名称为关键字。你可以使用 [`setShardLimits`](#Game.setShardLimits)
  方法重设他们。
+===
+unlocked : boolean 
+您的账户是否已经解锁了完整的 CPU。
+===
+unlockedTime : number 
+您账户解锁完整 CPU 时的 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime#Syntax">UNIX 毫秒时间戳</a>。当您账户的完整 CPU 未解锁或未使用 subscription 时该属性未定义。
+
 {% endapi_method_params %}
 
 
@@ -108,7 +115,7 @@ Game.powerCreeps['PC1'].moveTo(flag);
 {% api_property Game.resources 'object' %}
 
 
-表示你账户中全局资源的对象，例如订阅令牌。每个对象的关键字都是一个资源常量，值是资源量。
+表示你账户中全局资源的对象，例如 pixel 或 cpu unlock。每个对象的关键字都是一个资源常量，值是资源量。
 
 
 {% api_property Game.rooms 'object&lt;string, <a href="#Room">Room</a>&gt;' %}
@@ -250,6 +257,43 @@ limits : object&lt;string, number&gt;
 OK | 该操作已成功安排。
 ERR_BUSY | 12 小时的冷却时间尚未结束。
 ERR_INVALID_ARGS | 该参数不是有效的 shard 限制对象。
+{% endapi_return_codes %}
+
+
+{% api_method Game.cpu.unlock '' 1 %}
+
+```javascript
+if(Game.cpu.unlockedTime && ((Game.cpu.unlockedTime - Date.now()) < 1000*60*60*24)) {
+    Game.cpu.unlock();
+}
+```
+
+为您的账户解锁 24 小时的完整 CPU。该方法将消耗一个您账户中的 CPU unlock（详见 [`Game.resources`](#Game.resources)）。
+如果之前尚未激活过完整 CPU。则可能需要一点时间（5 分钟之内）来为您的账户应用解锁。
+
+### 返回值
+
+下列返回值之一：
+{% api_return_codes %}
+OK | 该操作已成功安排。
+ERR_FULL | 您的 CPU 已经使用了 subscription 解锁.
+ERR_NOT_ENOUGH_RESOURCES | 您的账户没有足够的 `cpuUnlock` 资源。
+{% endapi_return_codes %}
+
+{% api_method Game.cpu.generatePixel '' 3 %}
+
+```javascript
+if(Game.cpu.bucket > 9000) {
+    Game.cpu.generatePixel();
+}
+```
+
+从您的 bucket 中取出 5000 CPU 来生成一点 pixel 资源。
+
+
+{% api_return_codes %}
+OK | 该操作已成功安排。
+ERR_NOT_ENOUGH_RESOURCES | 您的 bucket 中没有足够的 CPU。
 {% endapi_return_codes %}
 
 

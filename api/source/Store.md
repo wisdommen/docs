@@ -26,7 +26,7 @@ if(creep.store[RESOURCE_ENERGY] < creep.store.getCapacity()) {
 }
 ```
 
-返回指定资源的存储容量, 当 `reource` 参数为 undefined 则返回总容量。
+返回指定资源的存储容量, 对于通用型 store，当 `reource` 参数为 undefined 则返回总容量。
 
 {% api_method_params %}
 resource (可选) : string
@@ -45,7 +45,19 @@ if(structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {
     creep.transfer(structure, RESOURCE_ENERGY);
 }
 ```
-`getCapacity(resource) - getUsedCapacity(resource)` 的简写。
+返回该存储的剩余可用容量，对于限定型 store 来说，将在 `resource` 对该存储有效时返回该资源的剩余可用容量。
+
+{% api_method_params %}
+resource (可选) : string
+资源类型。
+{% endapi_method_params %}
+
+
+### 返回值
+
+返回可用的剩余容量，如果 `resource` 对该 store 无效则返回 `null`。
+
+
 
 {% api_method getUsedCapacity '[resource]' 0 %}
 
