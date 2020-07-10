@@ -63,7 +63,7 @@ function powerDescription(powerName) {
         return `提升 ${effectMetric()} 单位的存储容量。`;
 
       case "OPERATE_LAB":
-        return `增加 ${effectMetric()} 单位的反应产物。`;
+        return `增加 ${effectMetric()} 单位的反应效率。`;
 
       case "OPERATE_EXTENSION":
         return `使用目标建筑（container、storage 或者 terminal）中的能量，立刻填充房间中 ${effect100()}% 的 extension。`;
@@ -96,7 +96,7 @@ function powerDescription(powerName) {
         return `阻止从 terminal 中取出（withdraw）或使用资源。`;
 
       case "FORTIFY":
-        return `使得一个 wall 或者 rampart 免疫所以来自 creep 的伤害和 power 的效果。`;
+        return `使得一个 wall 或者 rampart 免疫所有来自 creep 的伤害和 power 的效果。`;
 
       case "OPERATE_POWER":
         return `将 Power Spawn 的 power 处理速度提升  ${effectMetric()} 单位每秒。`;
