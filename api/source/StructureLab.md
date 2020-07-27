@@ -193,7 +193,7 @@ OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | 您不是该 lab 的所有者。
 ERR_NOT_ENOUGH_RESOURCES | 输入 lab 没有足够的资源。
 ERR_INVALID_TARGET | 目标不是有效的 lab 对象。
-ERR_FULL | 目标无法接受更多能量。
+ERR_FULL | 目标无法接受更多资源。
 ERR_NOT_IN_RANGE | 目标距离过远。
 ERR_INVALID_ARGS | 无法使用输入 lab 中的资源进行反应。
 ERR_TIRED | 该 lab 仍在冷却中。
