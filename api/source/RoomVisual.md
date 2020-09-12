@@ -421,3 +421,38 @@ if(creep.room.visual.getSize() >= 512000) {
 ### 返回值
 
 视觉效果的大小（单位：字节）。
+
+
+{% api_method export '' 0 %}
+
+```javascript
+Memory.RoomVisualData['E2S7'] = Game.rooms.E2S7.visual.export();
+```
+
+返回当前 tick 中添加到房间中的所有可视化效果的紧凑格式。
+
+
+
+### 返回值
+
+代表了可视化数据的字符串。除了将其存储以备后续使用外，您不应该对其进行其他操作。
+
+{% api_method import 'val' 0 %}
+
+```javascript
+if(Memory.RoomVisualData['E2S7']) {
+    Game.rooms.E2S7.visual.import(Memory.RoomVisualData['E2S7']);
+}
+```
+
+将先前导出（使用<a href="#RoomVisual.export">RoomVisual.export</a>）的房间可视化效果添加到当前 tick。
+
+{% api_method_params %}
+val : string
+从 RoomVisual.export 返回的字符串。
+
+{% endapi_method_params %}
+
+### 返回值
+
+<code>RoomVisual</code> 对象自身，以便进行链式调用。
