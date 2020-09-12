@@ -429,13 +429,13 @@ if(creep.room.visual.getSize() >= 512000) {
 Memory.RoomVisualData['E2S7'] = Game.rooms.E2S7.visual.export();
 ```
 
-Returns a compact representation of all visuals added in the room in the current tick.
+返回当前 tick 中添加到房间中的所有可视化效果的紧凑格式。
 
 
 
-### Return value
+### 返回值
 
-A string with visuals data. There's not much you can do with the string besides store them for later.
+代表了可视化数据的字符串。除了将其存储以备后续使用外，您不应该对其进行其他操作。
 
 {% api_method import 'val' 0 %}
 
@@ -445,14 +445,14 @@ if(Memory.RoomVisualData['E2S7']) {
 }
 ```
 
-Add previously exported (with <a href="#RoomVisual.export">RoomVisual.export</a>) room visuals to the room visual data of the current tick. 
+将先前导出（使用<a href="#RoomVisual.export">RoomVisual.export</a>）的房间可视化效果添加到当前 tick。
 
 {% api_method_params %}
 val : string
-The string returned from RoomVisual.export.
+从 RoomVisual.export 返回的字符串。
 
 {% endapi_method_params %}
 
-### Return value
+### 返回值
 
-The <code>RoomVisual</code> object itself, so that you can chain calls.
+<code>RoomVisual</code> 对象自身，以便进行链式调用。
