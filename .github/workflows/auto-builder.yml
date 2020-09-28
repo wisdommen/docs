@@ -66,8 +66,12 @@ jobs:
         git commit -m "Github Action Auto Builder"
     
     - name: Push Docs to Github Pages Repo
-      run: git push --quiet --force https://${{ secrets.GH_TOKEN }}@github.com/screeps-cn/screeps-cn.github.io.git master
+      run: |
+        cd ./public
+        git push --quiet --force https://${{ secrets.GH_TOKEN }}@github.com/screeps-cn/screeps-cn.github.io.git master
         
     - name: Push Docs to Gitee Pages Repo
-      run: git push --quiet --force https://${{ secrets.GITEE_TOKEN }}@gitee.com/screeps-cn/screeps-cn.git master
+      run: |
+        cd ./public
+        git push --quiet --force https://${{ secrets.GITEE_TOKEN }}@gitee.com/screeps-cn/screeps-cn.git master
 
