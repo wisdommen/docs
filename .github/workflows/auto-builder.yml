@@ -65,4 +65,14 @@ jobs:
         git add --all .
         git commit -m "Github Action Auto Builder"
         git push --quiet --force https://${{ secrets.GH_TOKEN }}@github.com/screeps-cn/screeps-cn.github.io.git master
+        
+    - name: Mirror the Github organization repos to Gitee.
+      uses: Yikun/hub-mirror-action@master
+      with:
+        src: github/screeps-cn.github.io
+        dst: gitee/screeps-cn
+        dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
+        dst_token: ${{ secrets.GITEE_TOKEN }}
+        force_update: true
+        account_type: org
 
