@@ -75,6 +75,7 @@ jobs:
         mkdir -p ~/.ssh
         echo "${{ secrets.GITEE_PRIVATE_KEY }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
+        rm ~/.ssh/known_hosts
         
         cd ./public
         git push --quiet --force git@gitee.com:screeps-cn/screeps-cn.git master
