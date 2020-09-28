@@ -72,6 +72,10 @@ jobs:
         
     - name: Push Docs to Gitee Pages Repo
       run: |
+        mkdir -p /root/.ssh
+        echo "${ secrets.GITEE_PRIVATE_KEY }" > /root/.ssh/id_rsa
+        chmod 600 /root/.ssh/id_rsa
+        
         cd ./public
-        git push --quiet --force https://${{ secrets.GITEE_TOKEN }}@gitee.com/screeps-cn/screeps-cn.git master
+        git push --quiet --force git@gitee.com:screeps-cn/screeps-cn.git master
 
