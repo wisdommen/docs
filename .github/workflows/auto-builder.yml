@@ -73,7 +73,7 @@ jobs:
     - name: Push Docs to Gitee Pages Repo
       run: |
         mkdir -p ~/.ssh
-        echo "${ secrets.GITEE_PRIVATE_KEY }" > ~/.ssh/id_rsa
+        echo "${{ secrets.GITEE_PRIVATE_KEY }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         
         cd ./public
