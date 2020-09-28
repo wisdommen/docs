@@ -55,8 +55,8 @@ jobs:
       with:
         name: docs
         path: public
-    
-    - name: Push Docs
+
+    - name: Init Repo and Commit
       run: |
         cd ./public
         git config --global user.email "nobody@github.com"
@@ -64,15 +64,10 @@ jobs:
         git init
         git add --all .
         git commit -m "Github Action Auto Builder"
-        git push --quiet --force https://${{ secrets.GH_TOKEN }}@github.com/screeps-cn/screeps-cn.github.io.git master
+    
+    - name: Push Docs to Github Pages Repo
+      run: git push --quiet --force https://${{ secrets.GH_TOKEN }}@github.com/screeps-cn/screeps-cn.github.io.git master
         
-    - name: Mirror the Github organization repos to Gitee.
-      uses: Yikun/hub-mirror-action@master
-      with:
-        src: github/screeps-cn
-        dst: gitee/screeps-cn
-        dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
-        dst_token: ${{ secrets.GITEE_TOKEN }}
-        force_update: true
-        account_type: org
+    - name: Push Docs to Gitee Pages Repo
+      run: git push --quiet --force https://${{ secrets.GITEE_TOKEN }}@gitee.com/screeps-cn/screeps-cn.git master
 
